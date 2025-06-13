@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name:  ue_manager_rapp-service
+spec:
+  selector:
+    app:  ue_manager_rapp-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5002
+  type: LoadBalancer  # Change to NodePort or ClusterIP as needed
+

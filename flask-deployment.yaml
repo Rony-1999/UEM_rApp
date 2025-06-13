@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  ue_manager_rapp-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ue_manager_rapp-app
+  template:
+    metadata:
+      labels:
+        app: ue_manager_rapp-app
+    spec:
+      containers:
+        - name: flask-influxdb-app
+          image: ronak311299/ue_manager_rapp-app:latest  # Replace with your image
+          ports:
+            - containerPort: 5002
+          env:
+            - name: INFLUXDB_HOST
+              value: "10.33.42.14"
+            - name: INFLUXDB_PORT
+              value: "8086"
+            - name: INFLUXDB_USERNAME
+              value: "admin"
+            - name: INFLUXDB_PASSWORD
+              value: "mySuP3rS3cr3tT0keN"
+            - name: INFLUXDB_ORG
+              value: "iosmcn"
+            - name: INFLUXDB_BUCKET
+              value: "pm-logg-bucket"
+            - name: USAGE_THRESHOLD
+              value: "20"
+      volumes:
+        - name: data-volume
+          configMap:
+            name: data-json-configmap  # Assumes you're using ConfigMap for data.json
+
