@@ -12,7 +12,7 @@ Required lIbraries:
 
 pynTs : https://github.com/o-ran-sc/sim-o1-ofhmp-interfaces
 
-### GET metrics from URL : HOST_IP:5002/metircs
+### GET metrics from URL - HOST_IP:5002/metircs
 
 ### How to run rApp
 
@@ -22,7 +22,7 @@ python3 UE_MANAGER_RAPP.py
 
 ```
 
-### Successfully Created Policies can be seen at URL : HOST_IP:5002/policies/view
+### Successfully Created Policies can be seen at URL - HOST_IP:5002/policies/view
 
 
 ```
